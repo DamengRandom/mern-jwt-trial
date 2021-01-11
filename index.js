@@ -1,7 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const router = require('./routes/userRouter')
+const userRouter = require('./routes/userRouter');
+const todoRouter = require('./routes/todoRouter');
 // using .env variables
 require('dotenv').config();
 
@@ -30,7 +31,8 @@ mongoose.connect(
 
 // setup routes (Apis)
 
-app.use("/user", router);
+app.use("/user", userRouter);
+app.use("/todos", todoRouter);
 
 app.listen(port, () => {
   console.log(`App is starting with port ${port} ..`);
